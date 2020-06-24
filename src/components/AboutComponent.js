@@ -3,18 +3,18 @@ import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'r
 import { Link } from 'react-router-dom';
 
 
-function RenderLeader(props){
+function RenderLeader({leader}){
     return(
         <Media>
             <Media left middle>
-                <Media object src={props.leader.image} alt={props.leader.name} />
+                <Media object src={leader.image} alt={leader.name} />
             </Media>
             <Media body className="col-6">
                 <Media heading>
-                    {props.leader.name}
+                    {leader.name}
                 </Media>
-                <p>{props.leader.designation}</p>
-                <p>{props.leader.description}</p>
+                <p>{leader.designation}</p>
+                <p>{leader.description}</p>
             </Media>
         </Media>
     )
@@ -23,7 +23,7 @@ function About(props) {
 
     const leaders = props.leaders.map((leader) => {
         return (
-           <RenderLeader leader={leader}></RenderLeader>
+           <RenderLeader leader={leader} />
         );
     });
 
